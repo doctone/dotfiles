@@ -20,3 +20,5 @@ config/claude/file-history/
 config/claude/shell-snapshots/
 config/claude/.update.lock
 config/claude/plans/
+config/claude/statsig/
+config/claude/todos/
