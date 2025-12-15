@@ -1,0 +1,21 @@
+[user]
+	name = Sam J
+	email = samjojames@gmail.com
+
+[alias]
+	co = checkout
+	cm = commit -m
+	fp = fetch origin && git checkout main && git reset --hard origin/main
+	w = worktree
+	wl = worktree list
+	wc = !git-wt-cd
+	wf = "!f() { git worktree add -b \"$1\" ../\"$1\" main; }; f"
+
+[init]
+	defaultBranch = main
+
+[pull]
+	rebase = false
+
+[core]
+	editor = nvim

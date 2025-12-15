@@ -1,0 +1,22 @@
+# Secrets - never commit these
+shell/env.zsh
+
+# macOS
+.DS_Store
+
+# Editor
+*.swp
+*.swo
+*~
+
+# Backup files created by symlinks script
+*.backup
+
+# Claude runtime files (created when Claude runs)
+config/claude/history.jsonl
+config/claude/projects/
+config/claude/debug/
+config/claude/file-history/
+config/claude/shell-snapshots/
+config/claude/.update.lock
+config/claude/plans/
