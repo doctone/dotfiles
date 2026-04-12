@@ -12,6 +12,7 @@ PACKAGES=(
     "ripgrep"   # Better grep
     "lazygit"   # Git TUI
     "gh"        # GitHub CLI
+    "uv"        # Python package manager
 )
 
 for package in "${PACKAGES[@]}"; do

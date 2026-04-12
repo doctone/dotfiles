@@ -2,10 +2,15 @@
 
 Continue work on an existing task plan.
 
+## Input
+Optional task identifier: $ARGUMENTS
+
 ## Process
 
 ### Step 1: Find Plans
-Search `docs/plans/*/plan.md` for all existing plans.
+Search `/Users/samjames/xylo/plans/*/plan.md` for all existing plans.
+
+If an argument is provided (e.g., `bui-1212`), filter plans to those whose directory name contains the argument (case-insensitive). Use glob pattern `/Users/samjames/xylo/plans/*<argument>*/plan.md` to find matching plans.
 
 ### Step 2: Identify Status
 For each plan, determine:

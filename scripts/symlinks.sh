@@ -32,6 +32,9 @@ create_symlink() {
 # Claude configuration
 create_symlink "$DOTFILES_DIR/config/claude" "$HOME/.claude"
 
+# OpenCode configuration
+create_symlink "$DOTFILES_DIR/config/opencode" "$HOME/.config/opencode"
+
 # Shell configuration
 create_symlink "$DOTFILES_DIR/shell/zshrc" "$HOME/.zshrc"
 

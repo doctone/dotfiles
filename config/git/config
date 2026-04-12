@@ -5,7 +5,7 @@
 [alias]
 	co = checkout
 	cm = commit -m
-	fp = fetch origin && git checkout main && git reset --hard origin/main
+	fp = \\!git fetch origin && git reset --hard origin/$(git branch --show-current)
 	w = worktree
 	wl = worktree list
 	wc = !git-wt-cd

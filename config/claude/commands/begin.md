@@ -9,9 +9,9 @@ Task description: $ARGUMENTS
 
 First, verify:
 1. No uncommitted changes exist (`git status`)
-2. Currently on main branch (or confirm branch switch)
+2. Currently on `main` or `planning` branch (these are acceptable starting points)
 
-If checks fail, ask user how to proceed.
+If on a different branch or uncommitted changes exist, ask user how to proceed.
 
 ## Process
 
@@ -22,7 +22,7 @@ Create a kebab-case identifier from the task description:
 - No path separators
 
 ### Step 2: Create Plan Directory
-Create `docs/plans/<slug>/` directory. Abort if it already exists (use `/resume` instead).
+Create `/Users/samjames/xylo/plans/<slug>/` directory. Abort if it already exists (use `/resume` instead).
 
 ### Step 3: Research Phase
 Use the researcher mindset to explore:
@@ -31,7 +31,7 @@ Use the researcher mindset to explore:
 - Documentation and tests
 - Dependencies and constraints
 
-Save findings to `docs/plans/<slug>/research.md`
+Save findings to `/Users/samjames/xylo/plans/<slug>/research.md`
 
 ### Step 4: Planning Phase
 Break work into atomic commits:
@@ -40,7 +40,7 @@ Break work into atomic commits:
 - List files to be modified
 - Create checkboxes for progress tracking
 
-Save plan to `docs/plans/<slug>/plan.md`
+Save plan to `/Users/samjames/xylo/plans/<slug>/plan.md`
 
 ### Step 5: Signoff
 Present the research and plan to the user:

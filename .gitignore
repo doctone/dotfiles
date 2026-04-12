@@ -12,6 +12,9 @@ shell/env.zsh
 # Backup files created by symlinks script
 *.backup
 
+# OpenCode runtime files
+config/opencode/node_modules/
+
 # Claude runtime files (created when Claude runs)
 config/claude/history.jsonl
 config/claude/projects/

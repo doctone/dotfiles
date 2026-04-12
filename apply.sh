@@ -31,6 +31,11 @@ echo "🔗 Creating symlinks..."
 echo "🔐 Setting hook permissions..."
 chmod +x "$DOTFILES_DIR/config/claude/hooks/"*.py
 
+# Set up OpenCode dependencies
+echo "⚙️ Setting up OpenCode..."
+npm install --prefix "$HOME/.config/opencode"
+(cd "$HOME/.config/opencode/ynab-mcp-server" && uv sync)
+
 # Create memory directory for Claude
 mkdir -p "$HOME/.claude-memory"
 
@@ -38,9 +43,10 @@ echo ""
 echo "✅ Dotfiles setup complete!"
 echo ""
 echo "Next steps:"
-echo "1. Copy env.zsh.template to env.zsh and add your GITHUB_TOKEN"
+echo "1. Copy env.zsh.template to env.zsh and add your tokens"
 echo "   cp $DOTFILES_DIR/shell/env.zsh.template $DOTFILES_DIR/shell/env.zsh"
 echo ""
-echo "2. Restart your terminal or run: source ~/.zshrc"
+echo "2. Log in to OpenCode providers:"
+echo "   opencode providers login google"
 echo ""
-echo "3. Test Claude commands in a new session: /status"
+echo "3. Restart your terminal or run: source ~/.zshrc"
