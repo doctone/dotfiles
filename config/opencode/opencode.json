@@ -19,9 +19,16 @@
     "ynab": {
       "type": "local",
       "command": [
-        "/Users/samjames/.config/opencode/ynab-mcp-server/.venv/bin/ynab-mcp-server"
+        "/Users/samjames/.dotfiles/config/opencode/ynab-mcp-server/.venv/bin/ynab-mcp-server"
       ],
+      "environment": {
+        "YNAB_API_TOKEN": "W6GD5lIRZfgCmWw1QGLxRhfhYLHXodt1TI2bX9DSES0"
+      },
       "enabled": true
+    },
+    "chrome-devtools": {
+      "type": "local",
+      "command": ["npx", "-y", "chrome-devtools-mcp@latest"]
     }
   }
 }
