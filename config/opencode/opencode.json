@@ -22,7 +22,7 @@
         "/Users/samjames/.dotfiles/config/opencode/ynab-mcp-server/.venv/bin/ynab-mcp-server"
       ],
       "environment": {
-        "YNAB_API_TOKEN": "W6GD5lIRZfgCmWw1QGLxRhfhYLHXodt1TI2bX9DSES0"
+        "YNAB_API_TOKEN": "${YNAB_API_TOKEN}"
       },
       "enabled": true
     },
