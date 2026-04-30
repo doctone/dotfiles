@@ -1,0 +1,6 @@
+[projects."github.com/build-xylo/monorepo"]
+approved-commands = [
+    "wt step copy-ignored",
+    "pnpm install",
+    "pnpm run build",
+]

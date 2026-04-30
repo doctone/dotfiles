@@ -5,13 +5,14 @@
 export ZSH="$HOME/.oh-my-zsh"
 
 # Theme
-eval "$(mise activate zsh)"
-SH_THEME="robbyrussell"
+ZSH_THEME="robbyrussell"
 
 # Plugins
 plugins=(git)
 
 source $ZSH/oh-my-zsh.sh
+
+eval "$(mise activate zsh)"
 
 # Load dotfiles shell configuration
 [[ -f "$HOME/.dotfiles/shell/aliases.zsh" ]] && source "$HOME/.dotfiles/shell/aliases.zsh"
@@ -20,6 +21,9 @@ source $ZSH/oh-my-zsh.sh
 
 # PATH additions
 export PATH="/opt/homebrew/opt/sqlite/bin:$PATH"
+
+# Claude Code CLI (pinned to mise node 20.11.1 so it's available regardless of project node version)
+alias claude="/Users/samjames/.local/share/mise/installs/node/20.11.1/bin/claude"
 
 # Kiro CLI post block. Keep at the bottom of this file.
 [[ -f "${HOME}/Library/Application Support/kiro-cli/shell/zshrc.post.zsh" ]] && builtin source "${HOME}/Library/Application Support/kiro-cli/shell/zshrc.post.zsh"
@@ -32,3 +36,39 @@ if [ -f '/Users/samjames/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then 
 
 # opencode
 export PATH=/Users/samjames/.opencode/bin:$PATH
+
+# bun completions
+[ -s "/Users/samjames/.bun/_bun" ] && source "/Users/samjames/.bun/_bun"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+if command -v wt >/dev/null 2>&1; then eval "$(command wt config shell init zsh)"; fi
+
+# AI-assisted dev workflow reminder
+_ai_workflow_reminder() {
+  local dim='\033[2m'
+  local bold='\033[1m'
+  local cyan='\033[36m'
+  local reset='\033[0m'
+
+  printf "\n"
+  printf "${bold}  Pick → Branch → Work → Merge → Close${reset}\n"
+  printf "${dim}  ─────────────────────────────────────${reset}\n"
+  printf "${cyan}  bd ready${reset}  ${dim}→${reset}  what's next?\n"
+  printf "${cyan}  wt switch -c fix${reset}  ${dim}→${reset}  isolated workspace\n"
+  printf "${dim}  (direct / collaborate / review)${reset}\n"
+  printf "${cyan}  wt merge${reset}  ${dim}→${reset}  squash back to main\n"
+  printf "${cyan}  bd close <id>${reset}  ${dim}→${reset}  done\n"
+  printf "\n"
+  printf "${dim}  direct:  ${reset}opencode run \"...\"${dim}  — fire and forget${reset}\n"
+  printf "${dim}  collab:  ${reset}opencode${dim}              — think together${reset}\n"
+  printf "${dim}  review:  ${reset}nvim .${dim}                — you decide${reset}\n"
+  printf "\n"
+}
+_ai_workflow_reminder

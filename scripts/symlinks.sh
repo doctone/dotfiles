@@ -35,6 +35,9 @@ create_symlink "$DOTFILES_DIR/config/claude" "$HOME/.claude"
 # OpenCode configuration
 create_symlink "$DOTFILES_DIR/config/opencode" "$HOME/.config/opencode"
 
+# Worktrunk configuration
+create_symlink "$DOTFILES_DIR/config/worktrunk" "$HOME/.config/worktrunk"
+
 # Shell configuration
 create_symlink "$DOTFILES_DIR/shell/zshrc" "$HOME/.zshrc"
 

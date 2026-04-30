@@ -1,6 +1,5 @@
 # Git
 alias lg='lazygit'
-alias wt='git-wt-cd'
 
 # Xylo
 alias open-plan='$HOME/xylo/monorepo/scripts/open-plan.sh'
