@@ -88,9 +88,8 @@ digraph brainstorming {
 - Once you believe you understand what you're building, present the design
 - Scale each section to its complexity: a few sentences if straightforward, up to 200-300 words if nuanced
 - Ask after each section whether it looks right so far
-- Cover: architecture, components, data flow, error handling, **testing strategy**
+- Cover: architecture, components, data flow, error handling, testing
 - Be ready to go back and clarify if something doesn't make sense
-- **Testing is not optional.** Every design must include what will be tested and how. If the design doesn't have a testing section, it's incomplete.
 
 **Design for isolation and clarity:**
 
@@ -121,7 +120,6 @@ After writing the spec document, look at it with fresh eyes:
 2. **Internal consistency:** Do any sections contradict each other? Does the architecture match the feature descriptions?
 3. **Scope check:** Is this focused enough for a single implementation plan, or does it need decomposition?
 4. **Ambiguity check:** Could any requirement be interpreted two different ways? If so, pick one and make it explicit.
-5. **Testing coverage:** Does the spec describe what will be tested? If there's no testing section, add one. Every feature needs tests — specify what behaviour is tested, not just "add tests".
 
 Fix any issues inline. No need to re-review — just fix and move on.
 
@@ -136,7 +134,6 @@ Wait for the user's response. If they request changes, make them and re-run the 
 
 - Invoke the writing-plans skill to create a detailed implementation plan
 - Do NOT invoke any other skill. writing-plans is the next step.
-- **TDD is mandatory.** The implementation plan MUST follow test-driven development: write failing tests first, then implement to make them pass. Every task in the plan should lead with the test, not the implementation. This is non-negotiable — if the plan writes implementation before tests, the plan is wrong.
 
 ## Key Principles
 
@@ -146,7 +143,6 @@ Wait for the user's response. If they request changes, make them and re-run the 
 - **Explore alternatives** - Always propose 2-3 approaches before settling
 - **Incremental validation** - Present design, get approval before moving on
 - **Be flexible** - Go back and clarify when something doesn't make sense
-- **TDD always** - Every design includes a testing strategy. Every plan leads with tests before implementation. No exceptions.
 
 ## Visual Companion
 
