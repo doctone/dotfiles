@@ -19,11 +19,10 @@
     "ynab": {
       "type": "local",
       "command": [
-        "/Users/samjames/.dotfiles/config/opencode/ynab-mcp-server/.venv/bin/ynab-mcp-server"
+        "zsh",
+        "-lc",
+        "source \"$HOME/.dotfiles/shell/env.zsh\" && exec \"$HOME/.dotfiles/config/opencode/ynab-mcp-server/.venv/bin/ynab-mcp-server\""
       ],
-      "environment": {
-        "YNAB_API_TOKEN": "${YNAB_API_TOKEN}"
-      },
       "enabled": true
     },
     "chrome-devtools": {

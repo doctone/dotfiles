@@ -72,8 +72,8 @@ For each changed function/method, work through the mutation operators (see Mutat
 1. **Mutate**: Change the production code (e.g., flip `*` to `/`, negate a condition)
 2. **Run**: Execute the test suite
 3. **Evaluate**: Did a test fail?
-   - **Yes** → mutant killed (good). Revert the mutation.
-   - **No** → mutant survived (bad). Revert the mutation, then add or strengthen a test.
+   - **Yes** -> mutant killed (good). Revert the mutation.
+   - **No** -> mutant survived (bad). Revert the mutation, then add or strengthen a test.
 4. **Revert**: Always restore the original code before the next mutation
 
 **Always revert each mutation before applying the next.** Never leave mutated code in place.
@@ -92,12 +92,12 @@ After working through the mutations, produce a summary:
 ## Mutation Testing Report
 
 ### Killed (tests caught the mutation)
-- `calculateTotal`: `*` → `/` — killed by "calculates total for multiple items"
-- `isEligible`: `>=` → `>` — killed by "returns true at exact boundary"
+- `calculateTotal`: `*` -> `/` — killed by "calculates total for multiple items"
+- `isEligible`: `>=` -> `>` — killed by "returns true at exact boundary"
 
 ### Survived (tests DID NOT catch the mutation)
-- `applyDiscount`: `>` → `>=` — no test for boundary value at exactly 100
-  → **Action**: Add boundary test for discount threshold
+- `applyDiscount`: `>` -> `>=` — no test for boundary value at exactly 100
+  -> **Action**: Add boundary test for discount threshold
 
 ### Summary
 - Mutations applied: 8
@@ -209,8 +209,8 @@ it('returns true for exactly 18', () => {
 
 | Original | Mutated | Test Should Verify |
 |----------|---------|-------------------|
-| `a && b` | `a \|\| b` | Case where one is true, other is false |
-| `a \|\| b` | `a && b` | Case where one is true, other is false |
+| `a && b` | `a || b` | Case where one is true, other is false |
+| `a || b` | `a && b` | Case where one is true, other is false |
 | `a ?? b` | `a && b` | Nullish coalescing behavior |
 
 **Example Analysis:**
