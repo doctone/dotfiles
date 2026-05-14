@@ -1,6 +1,93 @@
 {
-  "permissions": {
-    "allow": [
+  "env" : {
+    "CLAUDE_MEMORY_PATH" : "~\/.claude-memory\/memory.json"
+  },
+  "hooks" : {
+    "Notification" : [
+      {
+        "hooks" : [
+          {
+            "command" : "TOKENBAR_PROVIDER=Claude TOKENBAR_EVENT=notification \/Users\/samjames\/.tokenbar\/agent-signals\/tokenbar-notify.sh",
+            "timeout" : 5,
+            "type" : "command"
+          }
+        ]
+      }
+    ],
+    "PreToolUse" : [
+      {
+        "hooks" : [
+          {
+            "command" : "python3 ~\/.dotfiles\/config\/claude\/hooks\/protect-files.py",
+            "type" : "command"
+          }
+        ],
+        "matcher" : "Bash"
+      },
+      {
+        "hooks" : [
+          {
+            "command" : "python3 ~\/.dotfiles\/config\/claude\/hooks\/pre-commit.py",
+            "type" : "command"
+          }
+        ],
+        "matcher" : "Bash(git commit:*)"
+      },
+      {
+        "hooks" : [
+          {
+            "command" : "python3 ~\/.dotfiles\/config\/claude\/hooks\/pre-pr.py",
+            "type" : "command"
+          }
+        ],
+        "matcher" : "Bash(gh pr create:*)"
+      },
+      {
+        "hooks" : [
+          {
+            "command" : "python3 ~\/.dotfiles\/config\/claude\/hooks\/pre-push.py",
+            "type" : "command"
+          }
+        ],
+        "matcher" : "Bash(git push:*)"
+      }
+    ],
+    "Stop" : [
+      {
+        "hooks" : [
+          {
+            "command" : "TOKENBAR_PROVIDER=Claude TOKENBAR_EVENT=stop \/Users\/samjames\/.tokenbar\/agent-signals\/tokenbar-notify.sh",
+            "timeout" : 5,
+            "type" : "command"
+          }
+        ]
+      }
+    ]
+  },
+  "mcpServers" : {
+    "github" : {
+      "args" : [
+        "-y",
+        "@modelcontextprotocol\/server-github"
+      ],
+      "command" : "npx",
+      "env" : {
+        "GITHUB_TOKEN" : "${GITHUB_TOKEN}"
+      }
+    },
+    "memory" : {
+      "args" : [
+        "-y",
+        "@modelcontextprotocol\/server-memory"
+      ],
+      "command" : "npx",
+      "env" : {
+        "MEMORY_FILE_PATH" : "~\/.claude-memory\/memory.json"
+      }
+    }
+  },
+  "permissions" : {
+    "allow" : [
       "Bash(ls:*)",
       "Bash(cat:*)",
       "Bash(head:*)",
@@ -30,65 +117,8 @@
       "WebFetch",
       "WebSearch"
     ],
-    "deny": []
-  },
-  "env": {
-    "CLAUDE_MEMORY_PATH": "~/.claude-memory/memory.json"
-  },
-  "mcpServers": {
-    "memory": {
-      "command": "npx",
-      "args": ["-y", "@modelcontextprotocol/server-memory"],
-      "env": {
-        "MEMORY_FILE_PATH": "~/.claude-memory/memory.json"
-      }
-    },
-    "github": {
-      "command": "npx",
-      "args": ["-y", "@modelcontextprotocol/server-github"],
-      "env": {
-        "GITHUB_TOKEN": "${GITHUB_TOKEN}"
-      }
-    }
-  },
-  "hooks": {
-    "PreToolUse": [
-      {
-        "matcher": "Bash",
-        "hooks": [
-          {
-            "type": "command",
-            "command": "python3 ~/.dotfiles/config/claude/hooks/protect-files.py"
-          }
-        ]
-      },
-      {
-        "matcher": "Bash(git commit:*)",
-        "hooks": [
-          {
-            "type": "command",
-            "command": "python3 ~/.dotfiles/config/claude/hooks/pre-commit.py"
-          }
-        ]
-      },
-      {
-        "matcher": "Bash(gh pr create:*)",
-        "hooks": [
-          {
-            "type": "command",
-            "command": "python3 ~/.dotfiles/config/claude/hooks/pre-pr.py"
-          }
-        ]
-      },
-      {
-        "matcher": "Bash(git push:*)",
-        "hooks": [
-          {
-            "type": "command",
-            "command": "python3 ~/.dotfiles/config/claude/hooks/pre-push.py"
-          }
-        ]
-      }
+    "deny" : [
+
     ]
   }
 }
