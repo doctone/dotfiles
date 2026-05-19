@@ -1,0 +1,18 @@
+{
+  "defaultProvider": "openai-codex",
+  "defaultModel": "gpt-5.5",
+  "defaultThinkingLevel": "high",
+  "skills": [
+    "~/.dotfiles/config/opencode/skills/tdd",
+    "~/.dotfiles/config/claude/skills/grill-me"
+  ],
+  "enableSkillCommands": true,
+  "compaction": {
+    "enabled": true,
+    "reserveTokens": 16384,
+    "keepRecentTokens": 20000
+  },
+  "warnings": {
+    "anthropicExtraUsage": false
+  }
+}

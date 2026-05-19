@@ -32,6 +32,13 @@ create_symlink() {
 # Claude configuration
 create_symlink "$DOTFILES_DIR/config/claude" "$HOME/.claude"
 
+# Pi configuration
+mkdir -p "$HOME/.pi/agent/skills" "$HOME/.pi/agent/extensions"
+create_symlink "$DOTFILES_DIR/config/pi/agent/AGENTS.md" "$HOME/.pi/agent/AGENTS.md"
+create_symlink "$DOTFILES_DIR/config/pi/agent/settings.json" "$HOME/.pi/agent/settings.json"
+create_symlink "$DOTFILES_DIR/config/pi/agent/skills/superpowers" "$HOME/.pi/agent/skills/superpowers"
+create_symlink "$DOTFILES_DIR/config/pi/agent/extensions/skill-aliases.ts" "$HOME/.pi/agent/extensions/skill-aliases.ts"
+
 # OpenCode configuration
 create_symlink "$DOTFILES_DIR/config/opencode" "$HOME/.config/opencode"
 
@@ -43,5 +50,8 @@ create_symlink "$DOTFILES_DIR/shell/zshrc" "$HOME/.zshrc"
 
 # Git configuration
 create_symlink "$DOTFILES_DIR/config/git/config" "$HOME/.gitconfig"
+
+# Ghostty configuration
+create_symlink "$DOTFILES_DIR/config/ghostty/config" "$HOME/Library/Application Support/com.mitchellh.ghostty/config"
 
 echo "✅ Symlinks created"
