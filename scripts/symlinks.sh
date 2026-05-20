@@ -45,6 +45,9 @@ create_symlink "$DOTFILES_DIR/config/opencode" "$HOME/.config/opencode"
 # Worktrunk configuration
 create_symlink "$DOTFILES_DIR/config/worktrunk" "$HOME/.config/worktrunk"
 
+# Neovim configuration
+create_symlink "$DOTFILES_DIR/config/nvim" "$HOME/.config/nvim"
+
 # Shell configuration
 create_symlink "$DOTFILES_DIR/shell/zshrc" "$HOME/.zshrc"
 
