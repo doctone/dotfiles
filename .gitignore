@@ -25,3 +25,4 @@ config/claude/.update.lock
 config/claude/plans/
 config/claude/statsig/
 config/claude/todos/
+config/claude/skills/finances/
