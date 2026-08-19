@@ -1,10 +1,9 @@
 {
   "defaultProvider": "openai-codex",
   "defaultModel": "gpt-5.5",
-  "defaultThinkingLevel": "low",
+  "defaultThinkingLevel": "high",
   "skills": [
-    "~/.dotfiles/config/opencode/skills/tdd",
-    "~/.dotfiles/config/claude/skills/grill-me"
+    "~/.dotfiles/skills"
   ],
   "enableSkillCommands": true,
   "compaction": {

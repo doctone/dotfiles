@@ -5,7 +5,7 @@
 [alias]
 	co = checkout
 	cm = commit -m
-	fp = \\!git fetch origin && git reset --hard origin/$(git branch --show-current)
+	fp = !git fetch --prune && git reset --hard @{u}
 	w = worktree
 	wl = worktree list
 	wc = !git-wt-cd
@@ -19,3 +19,9 @@
 
 [core]
 	editor = nvim
+[credential "https://github.com"]
+	helper = 
+	helper = !/opt/homebrew/bin/gh auth git-credential
+[credential "https://gist.github.com"]
+	helper = 
+	helper = !/opt/homebrew/bin/gh auth git-credential

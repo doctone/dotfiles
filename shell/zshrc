@@ -22,8 +22,8 @@ eval "$(mise activate zsh)"
 # PATH additions
 export PATH="/opt/homebrew/opt/sqlite/bin:$PATH"
 
-# Claude Code CLI (pinned to mise node 20.11.1 so it's available regardless of project node version)
-alias claude="/Users/samjames/.local/share/mise/installs/node/20.11.1/bin/claude"
+# User-local CLIs, including Claude Code installed by Anthropic's installer
+export PATH="$HOME/.local/bin:$PATH"
 
 # Kiro CLI post block. Keep at the bottom of this file.
 [[ -f "${HOME}/Library/Application Support/kiro-cli/shell/zshrc.post.zsh" ]] && builtin source "${HOME}/Library/Application Support/kiro-cli/shell/zshrc.post.zsh"
@@ -72,3 +72,49 @@ _ai_workflow_reminder() {
   printf "\n"
 }
 _ai_workflow_reminder
+
+# zoxide (smarter cd)
+eval "$(zoxide init zsh)"
+
+# libpq (psql) — keg-only, not linked by brew
+export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
+
+# Auto-upgrade Homebrew packages on shell start (interactive only). Runs
+# detached so the prompt never waits, then reports the result back at the next
+# prompt. Full output: ~/.cache/brew-upgrade.log
+if [[ -o interactive ]] && command -v brew >/dev/null 2>&1; then
+  _brew_upgrade_log="$HOME/.cache/brew-upgrade.log"
+  mkdir -p "${_brew_upgrade_log:h}"
+
+  # Fires when the background job has a summary line for us. `zle -I` redraws
+  # the prompt so the message can't mangle a half-typed command.
+  _brew_upgrade_notify() {
+    local fd=$1 msg
+    if IFS= read -r -u $fd msg; then
+      [[ -n $msg ]] && { zle -I 2>/dev/null; print -P -- "$msg" }
+    else
+      zle -F $fd
+      exec {fd}<&-
+    fi
+  }
+
+  print -P "%F{242}  ⬆ brew: checking for upgrades in the background…%f"
+
+  exec {_brew_upgrade_fd}< <(
+    { print -r -- "===== $(date) ====="; brew update } >>"$_brew_upgrade_log" 2>&1
+
+    _outdated=(${(f)"$(HOMEBREW_NO_AUTO_UPDATE=1 brew outdated --quiet 2>/dev/null)"})
+    _outdated=(${_outdated:#})
+
+    if (( ${#_outdated} == 0 )); then
+      print -r -- "%F{242}  ⬆ brew: already up to date%f"
+    elif HOMEBREW_NO_AUTO_UPDATE=1 brew upgrade >>"$_brew_upgrade_log" 2>&1; then
+      _names="${_outdated[1,5]}"
+      (( ${#_outdated} > 5 )) && _names="$_names …"
+      print -r -- "%F{green}  ⬆ brew: upgraded ${#_outdated} package(s) — $_names%f"
+    else
+      print -r -- "%F{red}  ⬆ brew: upgrade FAILED — see $_brew_upgrade_log%f"
+    fi
+  )
+  zle -F $_brew_upgrade_fd _brew_upgrade_notify 2>/dev/null
+fi

@@ -127,7 +127,7 @@ Use specialized agents for focused tasks:
 - `/pr` - Open pull request
 
 ### Standalone
-- `/research` - Explore codebase
+- `/research-phase` - Explore codebase (`/research` investigates external docs/sources)
 - `/plan` - Create implementation plan
 - `/signoff` - Get approval
 - `/dev` - Development phase
