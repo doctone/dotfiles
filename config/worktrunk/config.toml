@@ -1,5 +1,15 @@
 skip-commit-generation-prompt = true
 
+[projects."github.com/EtchUK/JnJ.BD.Activate"]
+worktree-path = "{{ repo_path }}/.worktrees/{{ branch | sanitize }}"
+# The Next Business Development Command app consumes packages/contracts and
+# ui/components through file: dependencies. Install all three, in dependency
+# order, per new worktree so local package links resolve cleanly.
+pre-start.install = "bun install --cwd packages/contracts && bun install --cwd ui/components && bun install --cwd apps/business-development-command"
+# Stable per-branch Next dev port derived from branch name via hash_port.
+aliases.web = "bun run --cwd apps/business-development-command dev -- --port {{ branch | hash_port }}"
+aliases.url = "echo web=http://localhost:{{ branch | hash_port }}"
+
 [projects]
 # # User Configuration
 #

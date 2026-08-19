@@ -38,8 +38,6 @@ local on_attach = function(client, bufnr)
   -- NvChad's defaults() already sets up LspAttach autocmd, no need to call on_attach again
 end
 
-local lspconfig = require "lspconfig"
-
 -- List of servers to configure
 local servers = {
   "html",
@@ -177,5 +175,6 @@ for _, lsp in ipairs(servers) do
     }
   end
   
-  lspconfig[lsp].setup(opts)
+  vim.lsp.config(lsp, opts)
+  vim.lsp.enable(lsp)
 end

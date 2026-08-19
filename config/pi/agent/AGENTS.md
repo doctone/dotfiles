@@ -1,10 +1,10 @@
 # Pi Agent Workflow
 
-Use the Superpowers discipline. At the start of each task, check whether a skill applies before responding or acting.
+Normal mode is lightweight and direct. Use skills when explicitly requested or when the user asks for a workflow that clearly matches one; plan mode injects the stricter Superpowers-first discipline.
 
 ## Frequently Used Skills
 
-- `superpowers`: use to determine which skills apply and how to approach the task.
+- `superpowers`: use in plan mode, or when explicitly requested, to determine which skills apply and how to approach the task.
 - `tdd`: use for feature work, bug fixes, refactors, and behavior changes.
 - `grill-me`: use when the user wants design interrogation, plan stress-testing, or says "grill me".
 
@@ -16,7 +16,7 @@ Pi exposes skills as `/skill:<name>`. This setup also provides ergonomic aliases
 
 ## Current Workflow Preferences
 
-- Do not use the old `/begin`, `/plan`, `/research`, `/next`, or staged planning workflow unless explicitly requested.
+- Do not use the old `/begin`, `/research`, `/next`, or staged planning workflow unless explicitly requested. `/plan` is reserved for the local plan-mode extension.
 - Prefer lightweight, direct execution guided by the applicable skill.
 - Keep changes focused. Do not add unasked features or unnecessary refactors.
 - Never commit, push, or create a PR without explicit user approval.

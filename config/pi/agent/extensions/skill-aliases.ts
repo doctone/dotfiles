@@ -15,22 +15,22 @@ const dotfiles = `${homedir()}/.dotfiles`;
 const aliases: SkillAlias[] = [
 	{
 		command: "superpowers",
-		skillName: "superpowers",
-		skillPath: `${dotfiles}/config/pi/agent/skills/superpowers/SKILL.md`,
+		skillName: "using-superpowers",
+		skillPath: `${dotfiles}/skills/using-superpowers/SKILL.md`,
 		description: "Use the Superpowers skill to choose the right workflow",
 		noArgsPrompt: "Apply the Superpowers workflow to the current conversation and ask what to do next if needed.",
 	},
 	{
 		command: "tdd",
 		skillName: "tdd",
-		skillPath: `${dotfiles}/config/opencode/skills/tdd/SKILL.md`,
+		skillPath: `${dotfiles}/skills/tdd/SKILL.md`,
 		description: "Use the TDD skill for test-first implementation",
 		noArgsPrompt: "Ask what behavior we should implement or change with TDD.",
 	},
 	{
 		command: "grill-me",
 		skillName: "grill-me",
-		skillPath: `${dotfiles}/config/claude/skills/grill-me/SKILL.md`,
+		skillPath: `${dotfiles}/skills/grill-me/SKILL.md`,
 		description: "Use the Grill Me skill to interrogate a plan or design",
 		noArgsPrompt: "Ask for the plan or design to grill, then proceed one question at a time.",
 	},

@@ -66,7 +66,26 @@ return {
     event = "VeryLazy",
     dependencies = { "williamboman/mason.nvim" },
     opts = {
-      auto_install = true,
+      -- mason-lspconfig v2 uses lspconfig server names here.
+      -- Keeping this list in sync with lua/configs/lspconfig.lua prevents
+      -- "language server missing from PATH" errors on fresh machines.
+      ensure_installed = {
+        "html",
+        "cssls",
+        "ts_ls",
+        "pyright",
+        "lua_ls",
+        "yamlls",
+        "jsonls",
+        "tailwindcss",
+        "bashls",
+        "eslint",
+        "emmet_ls",
+        "prismals",
+        "terraformls",
+      },
+      -- Servers are configured manually in lua/configs/lspconfig.lua.
+      automatic_enable = false,
     },
   },
 

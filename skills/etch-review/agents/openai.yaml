@@ -1,0 +1,4 @@
+interface:
+  display_name: "Etch Review"
+  short_description: "Address PR feedback and request agentic review"
+  default_prompt: "Use $command-etch-review to address review feedback for this branch or PR."

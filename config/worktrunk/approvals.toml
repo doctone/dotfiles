@@ -1,3 +1,8 @@
+[projects."github.com/EtchUK/JnJ.BD.Activate"]
+approved-commands = [
+    "bun install --cwd apps/bdcc",
+]
+
 [projects."github.com/build-xylo/monorepo"]
 approved-commands = [
     "wt step copy-ignored",

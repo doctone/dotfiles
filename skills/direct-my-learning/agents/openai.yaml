@@ -1,0 +1,6 @@
+interface:
+  display_name: "Direct My Learning"
+  short_description: "Choose the next lesson on one career spine"
+  default_prompt: "Use $direct-my-learning to choose and run my next 30-minute learning session."
+policy:
+  allow_implicit_invocation: true
