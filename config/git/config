@@ -1,6 +1,13 @@
 [user]
 	name = Sam J
-	email = samjojames@gmail.com
+	email = SJames39@its.jnj.com
+
+# J&J work uses the its.jnj.com identity the JPM pipeline validates against.
+# Directory-scoped so personal repositories keep the identity above.
+[includeIf "gitdir:/Users/samjames/etch/"]
+	path = ~/.gitconfig-jnj
+[includeIf "gitdir:/Users/samjames/chief-of-staff/etch/"]
+	path = ~/.gitconfig-jnj
 
 [alias]
 	co = checkout
@@ -25,3 +32,6 @@
 [credential "https://gist.github.com"]
 	helper = 
 	helper = !/opt/homebrew/bin/gh auth git-credential
+[credential "https://sourcecode.jnj.com"]
+	helper = osxkeychain
+	username = SJames39
