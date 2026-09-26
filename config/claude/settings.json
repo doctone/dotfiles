@@ -1,7 +1,6 @@
 {
   "env": {
     "CLAUDE_MEMORY_PATH": "~/.claude-memory/memory.json",
-    "ANTHROPIC_AUTH_TOKEN": "dc3669fd29a44163bac1a50599e5f975.udJOb9oKhtwK3S1X",
     "ANTHROPIC_BASE_URL": "https://api.z.ai/api/anthropic",
     "API_TIMEOUT_MS": "3000000",
     "CLAUDE_CODE_DISABLE_NONESSENTIAL_TRAFFIC": "1",
