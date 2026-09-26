@@ -11,4 +11,4 @@ Pi extension that adds a lightweight `/plan` mode.
 - `Ctrl+Alt+P` toggles it
 - `pi --plan` starts with it enabled
 
-When enabled, plan mode injects superpowers-first planning instructions into the system prompt for each turn. Normal mode leaves the system prompt alone.
+When enabled, plan mode injects concise planning instructions into the system prompt for each turn. Normal mode leaves the system prompt alone.

@@ -13,13 +13,7 @@ interface SkillAlias {
 const dotfiles = `${homedir()}/.dotfiles`;
 
 const aliases: SkillAlias[] = [
-	{
-		command: "superpowers",
-		skillName: "using-superpowers",
-		skillPath: `${dotfiles}/skills/using-superpowers/SKILL.md`,
-		description: "Use the Superpowers skill to choose the right workflow",
-		noArgsPrompt: "Apply the Superpowers workflow to the current conversation and ask what to do next if needed.",
-	},
+
 	{
 		command: "tdd",
 		skillName: "tdd",

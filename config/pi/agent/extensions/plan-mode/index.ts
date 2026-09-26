@@ -9,7 +9,7 @@ export default function planModeExtension(pi: ExtensionAPI): void {
 	let enabled = false;
 
 	pi.registerFlag("plan", {
-		description: "Start in plan mode (superpowers-first planning discipline)",
+		description: "Start in plan mode",
 		type: "boolean",
 		default: false,
 	});

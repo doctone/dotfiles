@@ -1,16 +1,14 @@
 # Pi Agent Workflow
 
-Normal mode is lightweight and direct. Use skills when explicitly requested or when the user asks for a workflow that clearly matches one; plan mode injects the stricter Superpowers-first discipline.
+Normal mode is lightweight and direct. Use skills when explicitly requested or when the user asks for a workflow that clearly matches one. Plan mode adds concise planning guidance.
 
 ## Frequently Used Skills
 
-- `superpowers`: use in plan mode, or when explicitly requested, to determine which skills apply and how to approach the task.
 - `tdd`: use for feature work, bug fixes, refactors, and behavior changes.
 - `grill-me`: use when the user wants design interrogation, plan stress-testing, or says "grill me".
 
 Pi exposes skills as `/skill:<name>`. This setup also provides ergonomic aliases:
 
-- `/superpowers`
 - `/tdd`
 - `/grill-me`
 
@@ -55,3 +53,7 @@ When using `grill-me`:
 - Never force push to `main` or `master`.
 - Never commit directly to `main` or `master`.
 - Always present commit messages, PR descriptions, and risky git actions for approval first.
+
+## Workflow preference
+
+Use direct, task-sized workflows. Do not install, restore, invoke, or recommend Superpowers or its bundled skills, including copied or renamed versions. Sam explicitly removed it from his stack on 2026-09-09. Historical references and cached marketplace listings are not permission to bring it back.

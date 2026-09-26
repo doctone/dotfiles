@@ -1,0 +1,16 @@
+{
+  "pid": 23107,
+  "version": "2.1.278",
+  "jsonPath": "/Users/samjames/.claude/daemon.json",
+  "logPath": "/Users/samjames/.claude/daemon.log",
+  "startedAt": 1790246512900,
+  "origin": "transient",
+  "spawnedBy": {
+    "label": "claude",
+    "cwd": "/Users/samjames/chief-of-staff/etch/activate",
+    "pid": 61519
+  },
+  "procStart": "Thu Sep 24 10:41:52 2026",
+  "launchTarget": "/Users/samjames/.local/share/claude/versions/2.1.278",
+  "processWrapper": ""
+}

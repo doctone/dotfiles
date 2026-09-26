@@ -1,5 +1,0 @@
-interface:
-  display_name: Using Superpowers
-  short_description: Explicitly enable the Superpowers skill-routing workflow.
-policy:
-  allow_implicit_invocation: false
